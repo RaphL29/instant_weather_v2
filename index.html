@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instant Weather V2</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-XQoYMqMTK8LvdlxU+g3t6sa0C+K3LkLFpbb5x0kzQDY=" crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-pMpr4VjD5Fv7DtSTl6yqqXPKn5Z2B0WlCeYdH9l+1jA=" crossorigin=""></script>
+</head>
+<body>
+  <button class="toggle-darkmode" onclick="document.body.classList.toggle('dark-mode')">🌙</button>
+  <main>
+    <h1>Instant Weather</h1>
+    <form id="weatherForm">
+      <input type="text" id="city" placeholder="Entrez une ville" required>
+      <label for="days">Prévisions :</label>
+      <select id="days">
+        <option value="1">1 jour</option>
+        <option value="2">2 jours</option>
+        <option value="3">3 jours</option>
+        <option value="4">4 jours</option>
+        <option value="5">5 jours</option>
+        <option value="6">6 jours</option>
+        <option value="7">7 jours</option>
+      </select>
+
+      <fieldset>
+        <legend>Informations supplémentaires :</legend>
+        <label><input type="checkbox" value="lat"> Latitude</label>
+        <label><input type="checkbox" value="lon"> Longitude</label>
+        <label><input type="checkbox" value="rain"> Cumul de pluie</label>
+        <label><input type="checkbox" value="wind"> Vent moyen</label>
+        <label><input type="checkbox" value="dir"> Direction du vent</label>
+      </fieldset>
+
+      <button type="submit">Afficher la météo</button>
+    </form>
+    <section id="weatherResult"></section>
+    <div id="map" style="height: 400px; margin-top: 1rem; border-radius: 15px; overflow: hidden;"></div>
+  </main>
+  
+  <!-- Charger d'abord les modules puis le script principal -->
+  <script type="module" src="weather-icons.js"></script>
+  <script type="module" src="map-module.js"></script>
+  <script type="module" src="script.js"></script>
+</body>
+</html>
